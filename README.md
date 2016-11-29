@@ -30,13 +30,19 @@ Change HADOOP_CLASSPATH (copy output `hadoop classpath`)
 
 Start slider and llap daemon using generated llap-slider-date/run.sh
 
-## Stop llap0 (default cluster name) and kill slider application (leave llap daemon running)
+Stop llap0 (default cluster name) and kill slider application (leave llap daemon running)
+
+Run through Hive CLI
 
 ## References:
 
 http://eastcirclek.blogspot.com/2016/10/how-to-start-hive-llap-functionality.html?view=flipcard&m=1
 
 https://github.com/t3rmin4t0r/tez-autobuild
- 
+
+llap daemon runs on default port 15551, can be checked at 
+
+lsof -i:15551
+
   </content>
 </snippet>
