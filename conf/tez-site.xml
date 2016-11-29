@@ -7,15 +7,13 @@
   <!-- Tez Properties -->
   <property>
     <name>tez.lib.uris</name>
-    <value>/Users/selinaz/apps/tez-0.9.0-SNAPSHOT-minimal/tez-0.9.0-SNAPSHOT-minimal.tar.gz</value>
+    <value>/Users/${user.name}/apps/tez-0.9.0-SNAPSHOT-minimal.tar.gz</value>
   </property>
 
-<property>
-<name>
-tez.use.cluster.hadoop-libs
-</name>
-<value>true</value>
-</property>
+  <property>
+    <name>tez.use.cluster.hadoop-libs</name>
+    <value>true</value>
+  </property>
 
   <property>
     <name>tez.queue.name</name>

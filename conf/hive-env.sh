@@ -51,7 +51,7 @@
 # export HIVE_CONF_DIR=
 export TEZ_HOME=/Users/selinaz/apps/tez-0.9.0-SNAPSHOT-minimal
 
-export HADOOP_CLASSPATH=${TEZ_HOME}/tez-dag-0.9.0-SNAPSHOT.jar:${TEZ_HOME}/*:${TEZ_HOME}/lib/*:${HADOOP_CLASSPATH}
+export HADOOP_CLASSPATH=${TEZ_HOME}/*:${TEZ_HOME}/lib/*:${HADOOP_CLASSPATH}
 export CLASSPATH=$CLASSPATH:${TEZ_HOME}/*:${TEZ_HOME}/lib/*
 # Folder containing extra ibraries required for hive compilation/execution can be controlled by:
 # export HIVE_AUX_JARS_PATH=
