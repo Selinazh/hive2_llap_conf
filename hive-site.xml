@@ -1,0 +1,178 @@
+<configuration>
+ <property>
+    <name>hive.server2.thrift.port</name>
+    <description></description>
+    <value>50515</value>
+  </property>
+
+<property>
+  <name>mapred.child.java.opts</name>
+  <!--value>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5432</value-->
+</property>
+<property>
+<name>hive.cli.tez.session.async</name>
+<value>false</value>
+</property>
+<property>
+  <name>hive.execution.engine</name>
+  <value>tez</value>
+  <description>
+    Chooses execution engine. Options are mr (Map reduce, default) or Tez (Hadoop 2 only).
+  </description>
+</property>
+
+<property>
+   <name>mapreduce.framework.name</name>
+   <value>yarn</value>
+   <description>Defines the mapreduce framework: yarn for mr or yarn-tez for tez</description>
+</property>
+
+<property>
+   <name>hive.merge.tezfiles</name>
+   <value>false</value>
+   <description>Enable merging of small files at the end of Tez jobs</description>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionURL</name>
+  <value>jdbc:mysql://localhost/metastore</value>
+  <description>JDBC connect string for a JDBC metastore</description>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionDriverName</name>
+  <!--value>org.apache.derby.jdbc.EmbeddedDriver</value-->
+  <value>com.mysql.jdbc.Driver</value>
+  <description>Driver class name for a JDBC metastore</description>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionUserName</name>
+  <value>hiveuser</value>
+  <description>username to use against metastore database</description>
+</property>
+
+<property>
+  <name>javax.jdo.option.ConnectionPassword</name>
+  <value>password</value>
+  <description>password to use against metastore database</description>
+</property>
+
+<property>
+  <name>hive.stats.dbclass</name>
+  <!--value>jdbc:mysql</value-->
+  <value>fs</value>
+</property>
+
+<property>
+  <name>hive.stats.jdbcdriver</name>
+  <value>com.mysql.jdbc.Driver</value>
+</property>
+
+<property>
+  <name>hive.stats.dbconnectionstring</name>
+  <value>jdbc:mysql://localhost/hivestats?useUnicode=true&amp;
+characterEncoding=UTF-8&amp;user=hiveuser&amp;password=password</value>
+</property>
+
+<property>
+  <name>hive.optimize.index.filter</name>
+  <value>true</value>
+</property>
+
+<!-- llap only configs -->
+  <property>
+    <name>hive.execution.mode</name>
+    <value>llap</value>
+  </property>
+  <property>
+    <name>hive.llap.execution.mode</name>
+    <!-- llap decider config -->
+    <value>all</value>
+  </property>
+  <property>
+    <name>hive.llap.io.enabled</name>
+    <!-- cache + IO elevator -->
+    <value>true</value>
+  </property>
+  <property>
+    <name>hive.llap.object.cache.enabled</name>
+    <value>true</value>
+  </property>
+
+<property>
+    <name>hive.llap.daemon.service.hosts</name>
+    <value>@llap0</value>
+    <description>Comma separate list of nodes running daemons</description>
+  </property>
+
+<property>
+    <name>hive.zookeeper.quorum</name>
+    <value>localhost:2181</value>
+</property>
+
+  <property>
+    <name>hive.llap.daemon.yarn.shuffle.port</name>
+    <value>15551</value>
+    <description>Set to the value on which the ShuffleHandler is running in YARN</description>
+  </property>
+
+  <property>
+    <name>hive.llap.daemon.num.executors</name>
+    <value>24</value>
+    <description>Num executors for each daemon</description>
+  </property>
+
+  <property>
+    <name>hive.llap.io.threadpool.size</name>
+  <value>24</value>
+  <description>Number of IO threads for each daemon</description>
+  </property>
+
+  <property>
+    <name>hive.llap.daemon.memory.per.instance.mb</name>
+    <value>20000</value>
+  </property>
+
+  <property>
+    <name>hive.llap.daemon.task.scheduler.enable.preemption</name>
+    <value>false</value>
+    <description>disable pre-emption</description>
+  </property>
+
+  <property>
+    <name>hive.llap.io.memory.size</name>
+    <value>1073741824</value>
+  </property>
+
+  <property>
+    <name>mapreduce.shuffle.connection-keep-alive.enable</name>
+    <value>true</value>
+  </property>
+
+  <property>
+    <name>mapreduce.shuffle.connection-keep-alive.timeout</name>
+    <value>60</value>
+  </property>
+
+  <property>
+    <name>hive.llap.io.allocator.mmap</name>
+    <value>false</value>
+  </property>
+<property>
+    <name>hive.llap.io.allocator.direct</name>
+    <value>false</value>
+    <description>has to disable this on MAC for no native support for ZLIB</description>
+  </property>
+  <property>
+    <name>hive.llap.daemon.allow.permanent.fns</name>
+    <value>false</value>
+  </property>
+
+  <property>
+    <name>hive.llap.daemon.work.dirs</name>
+    <value>${yarn.nodemanager.local-dirs}</value>
+    <description>Set to yarn.nodemanager.local-dirs</description>
+  </property>
+
+</configuration>
