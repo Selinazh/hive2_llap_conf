@@ -9,10 +9,7 @@
   <name>mapred.child.java.opts</name>
   <!--value>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=5432</value-->
 </property>
-<property>
-<name>hive.cli.tez.session.async</name>
-<value>false</value>
-</property>
+
 <property>
   <name>hive.execution.engine</name>
   <value>tez</value>
@@ -34,6 +31,11 @@
 </property>
 
 <property>
+  <name>hive.tez.exec.print.summary</name>
+  <value>true</value>
+</property>
+
+<property>
   <name>javax.jdo.option.ConnectionURL</name>
   <value>jdbc:mysql://localhost/metastore</value>
   <description>JDBC connect string for a JDBC metastore</description>
@@ -41,7 +43,6 @@
 
 <property>
   <name>javax.jdo.option.ConnectionDriverName</name>
-  <!--value>org.apache.derby.jdbc.EmbeddedDriver</value-->
   <value>com.mysql.jdbc.Driver</value>
   <description>Driver class name for a JDBC metastore</description>
 </property>
@@ -100,16 +101,16 @@ characterEncoding=UTF-8&amp;user=hiveuser&amp;password=password</value>
     <value>true</value>
   </property>
 
-<property>
+  <property>
     <name>hive.llap.daemon.service.hosts</name>
     <value>@llap0</value>
     <description>Comma separate list of nodes running daemons</description>
   </property>
 
-<property>
+  <property>
     <name>hive.zookeeper.quorum</name>
     <value>localhost:2181</value>
-</property>
+  </property>
 
   <property>
     <name>hive.llap.daemon.yarn.shuffle.port</name>
@@ -141,11 +142,6 @@ characterEncoding=UTF-8&amp;user=hiveuser&amp;password=password</value>
   </property>
 
   <property>
-    <name>hive.llap.io.memory.size</name>
-    <value>1073741824</value>
-  </property>
-
-  <property>
     <name>mapreduce.shuffle.connection-keep-alive.enable</name>
     <value>true</value>
   </property>
@@ -159,11 +155,13 @@ characterEncoding=UTF-8&amp;user=hiveuser&amp;password=password</value>
     <name>hive.llap.io.allocator.mmap</name>
     <value>false</value>
   </property>
-<property>
+  
+  <property>
     <name>hive.llap.io.allocator.direct</name>
     <value>false</value>
     <description>has to disable this on MAC for no native support for ZLIB</description>
   </property>
+  
   <property>
     <name>hive.llap.daemon.allow.permanent.fns</name>
     <value>false</value>
